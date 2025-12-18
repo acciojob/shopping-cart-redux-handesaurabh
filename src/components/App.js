@@ -12,6 +12,7 @@ const App = () => {
         <div></div>
         <div>
           <div>
+            <h3>Shopping Cart</h3>
           </div>
           <ProductsPage />
         </div>
