@@ -17,28 +17,36 @@ const Wishlist = () => {
 
   return (
     <div className="wishlist">
-      <h2>Wishlist</h2>
+      <h2 className="mb-4">Wishlist</h2>
       {wishlistItems.length === 0 ? (
-        <p>Your wishlist is empty</p>
+        <div className="alert alert-info">Your wishlist is empty</div>
       ) : (
-        <div className="wishlist-items">
+        <div className="wishlist-items row">
           {wishlistItems.map(item => (
-            <div key={item.id} className="wishlist-item">
-              <img src={item.image} alt={item.name} />
-              <div className="item-details">
-                <h3>{item.name}</h3>
-                <p>${item.price.toFixed(2)}</p>
-              </div>
-              <div className="wishlist-actions">
-                <button onClick={() => handleAddToCart(item)}>
-                  Add to Cart
-                </button>
-                <button 
-                  onClick={() => handleRemoveFromWishlist(item.id)}
-                  className="remove-btn"
-                >
-                  Remove
-                </button>
+            <div key={item.id} className="col-md-6 mb-4">
+              <div className="custom-card card h-100">
+                <div className="row no-gutters">
+                  <div className="col-md-4">
+                    <img src={item.image} className="card-img" alt={item.name} />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title">{item.name}</h5>
+                      <p className="card-text">${item.price.toFixed(2)}</p>
+                      <div className="wishlist-actions mt-auto">
+                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary mr-2">
+                          Add to Cart
+                        </button>
+                        <button 
+                          onClick={() => handleRemoveFromWishlist(item.id)}
+                          className="btn btn-danger"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

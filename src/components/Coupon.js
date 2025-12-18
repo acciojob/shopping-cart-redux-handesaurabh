@@ -19,26 +19,29 @@ const Coupon = () => {
   };
 
   return (
-    <div className="coupon-section">
+    <div className="coupon-section mb-4">
       <h3>Apply Coupon</h3>
       {coupon.code ? (
-        <div className="applied-coupon">
-          <p>Coupon applied: {coupon.code} ({coupon.discount}% off)</p>
-          <button onClick={handleRemoveCoupon}>Remove</button>
+        <div className="applied-coupon alert alert-success d-flex justify-content-between align-items-center">
+          <span>Coupon applied: {coupon.code} ({coupon.discount}% off)</span>
+          <button onClick={handleRemoveCoupon} className="btn btn-danger btn-sm">Remove</button>
         </div>
       ) : (
-        <div className="coupon-form">
+        <div className="coupon-form input-group mb-3">
           <input
             type="text"
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
             placeholder="Enter coupon code"
+            className="form-control"
           />
-          <button onClick={handleApplyCoupon}>Apply</button>
+          <div className="input-group-append">
+            <button onClick={handleApplyCoupon} className="btn btn-primary">Apply</button>
+          </div>
         </div>
       )}
-      <div className="available-coupons">
-        <p>Available coupons: SAVE10, SAVE20, SAVE5</p>
+      <div className="available-coupons alert alert-info">
+        <p className="mb-0">Available coupons: SAVE10, SAVE20, SAVE5</p>
       </div>
     </div>
   );
