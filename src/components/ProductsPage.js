@@ -12,7 +12,6 @@ const ProductsPage = () => {
     <div className="app">
       <div>
         <div>
-          <h3>Shopping Cart</h3>
           <div>
             <button 
               className={activeTab === 'products' ? 'btn-primary' : ''}
