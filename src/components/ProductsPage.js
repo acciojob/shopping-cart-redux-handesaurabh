@@ -10,36 +10,37 @@ const ProductsPage = () => {
 
   return (
     <div className="app">
-      <div>
-        <div>
-          <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="text-center">
+          <h1 className="display-4">Shopping Cart</h1>
+          <div className="btn-group" role="group">
             <button 
-              className={activeTab === 'products' ? 'btn-primary' : ''}
+              className={`btn ${activeTab === 'products' ? 'btn-primary' : 'btn-outline-primary'}`}
               onClick={() => setActiveTab('products')}
             >
               Products
             </button>
             <button 
-              className={activeTab === 'cart' ? 'btn-primary' : ''}
+              className={`btn ${activeTab === 'cart' ? 'btn-primary' : 'btn-outline-primary'}`}
               onClick={() => setActiveTab('cart')}
             >
               Cart
             </button>
             <button 
-              className={activeTab === 'wishlist' ? 'btn-primary' : ''}
+              className={`btn ${activeTab === 'wishlist' ? 'btn-primary' : 'btn-outline-primary'}`}
               onClick={() => setActiveTab('wishlist')}
             >
               Wishlist
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      <div>
+      <main className="container mt-4">
         {activeTab === 'products' && <ProductList products={products} />}
         {activeTab === 'cart' && <Cart />}
         {activeTab === 'wishlist' && <Wishlist />}
-      </div>
+      </main>
     </div>
   );
 };
