@@ -10,9 +10,8 @@ const ProductsPage = () => {
 
   return (
     <div className="app">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="text-center">
-          <h1 className="display-4">Shopping Cart</h1>
+      <div>
+        <div>
           <div className="btn-group" role="group">
             <button 
               className={`btn ${activeTab === 'products' ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -34,13 +33,13 @@ const ProductsPage = () => {
             </button>
           </div>
         </div>
-      </nav>
+      </div>
 
-      <main className="container mt-4">
+      <div>
         {activeTab === 'products' && <ProductList products={products} />}
         {activeTab === 'cart' && <Cart />}
         {activeTab === 'wishlist' && <Wishlist />}
-      </main>
+      </div>
     </div>
   );
 };
