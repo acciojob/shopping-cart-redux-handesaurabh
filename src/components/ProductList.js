@@ -28,7 +28,7 @@ const ProductList = ({ products }) => {
             <div className="custom-card card h-100">
               <img src={product.image} className="card-img-top" alt={product.name} />
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{product.name}</h5>
+                <h4 className="card-title">{product.name}</h4>
                 <p className="card-text price">${product.price.toFixed(2)}</p>
                 <p className="card-text description">{product.description}</p>
                 <div className="product-actions mt-auto">
