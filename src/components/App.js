@@ -10,8 +10,8 @@ const App = () => {
     <Provider store={store}>
       <div>
         <div></div>
-        <div>
-          <h3>All Products</h3>
+        <div data-testid="main-content">
+          <h3 data-testid="all-products-heading">All Products</h3>
           <ProductsPage />
         </div>
       </div>
