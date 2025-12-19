@@ -33,17 +33,15 @@ const Wishlist = () => {
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{item.name}</h5>
                       <p className="card-text">${item.price.toFixed(2)}</p>
-                      <div className="wishlist-actions mt-auto">
-                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary mr-2">
-                          Add to Cart
-                        </button>
-                        <button 
-                          onClick={() => handleRemoveFromWishlist(item.id)}
-                          className="btn btn-danger"
-                        >
-                          Remove
-                        </button>
-                      </div>
+                      <button onClick={() => handleAddToCart(item)} className="btn btn-primary mr-2 mt-auto">
+                        Add to Cart
+                      </button>
+                      <button 
+                        onClick={() => handleRemoveFromWishlist(item.id)}
+                        className="btn btn-danger"
+                      >
+                        Remove
+                      </button>
                     </div>
                   </div>
                 </div>
