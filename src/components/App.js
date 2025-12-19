@@ -11,7 +11,9 @@ const App = () => {
       <div id="root">
         <div></div>
         <div>
-          <h3>All Products</h3>
+          <div>
+            <h3>All Products</h3>
+          </div>
           <ProductsPage />
         </div>
       </div>
