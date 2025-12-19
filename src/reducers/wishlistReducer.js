@@ -10,7 +10,11 @@ const wishlistReducer = (state = initialState, action) => {
       // Check if item already exists in wishlist
       const exists = state.items.some(item => item.id === action.payload.id);
       if (exists) {
-        return state; // Item already in wishlist
+        // If already in wishlist, remove it (toggle behavior)
+        return {
+          ...state,
+          items: state.items.filter(item => item.id !== action.payload.id)
+        };
       }
       return {
         ...state,

@@ -3,7 +3,6 @@ import products from '../products';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Wishlist from './Wishlist';
-import Coupon from './Coupon';
 
 const ProductsPage = () => {
   const [activeTab, setActiveTab] = useState('products');
@@ -18,7 +17,7 @@ const ProductsPage = () => {
               className={`btn ${activeTab === 'products' ? 'btn-primary' : 'btn-outline-primary'}`}
               onClick={() => setActiveTab('products')}
             >
-              Products
+              All Products
             </button>
             <button 
               className={`btn ${activeTab === 'cart' ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -37,7 +36,12 @@ const ProductsPage = () => {
       </nav>
 
       <main className="container mt-4">
-        {activeTab === 'products' && <ProductList products={products} />}
+        {activeTab === 'products' && (
+          <>
+            <h3>All Products</h3>
+            <ProductList products={products} />
+          </>
+        )}
         {activeTab === 'cart' && <Cart />}
         {activeTab === 'wishlist' && <Wishlist />}
       </main>
