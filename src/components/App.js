@@ -12,6 +12,7 @@ const App = () => {
         <div></div>
         <div>
           <div>
+            <h3>All Products</h3>
           </div>
           <ProductsPage />
         </div>

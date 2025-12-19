@@ -26,7 +26,6 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="product-list">
-      <h3>All Products</h3>
       <div className="row">
         {products.map(product => (
           <div key={product.id} className="col-md-4 mb-4">
