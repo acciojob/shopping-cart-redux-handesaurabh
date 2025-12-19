@@ -26,6 +26,7 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="product-list">
+      <h3>All Products</h3>
       <div className="row">
         {products.map(product => (
           <div key={product.id} className="col-md-4 mb-4">
@@ -35,17 +36,15 @@ const ProductList = ({ products }) => {
                 <h4 className="card-title">{product.name}</h4>
                 <p className="card-text price">${product.price.toFixed(2)}</p>
                 <p className="card-text description">{product.description}</p>
-                <div className="product-actions mt-auto">
-                  <button onClick={() => handleAddToCart(product)} className="btn btn-primary mr-2">
-                    Add to Cart
-                  </button>
-                  <button 
-                    onClick={() => handleWishlistToggle(product)}
-                    className={`btn ${isInWishlist(product.id) ? 'btn-danger' : 'btn-secondary'}`}
-                  >
-                    {isInWishlist(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
-                  </button>
-                </div>
+                <button onClick={() => handleAddToCart(product)} className="btn btn-primary mb-2">
+                  Add to Cart
+                </button>
+                <button 
+                  onClick={() => handleWishlistToggle(product)}
+                  className={`btn ${isInWishlist(product.id) ? 'btn-danger' : 'btn-secondary'}`}
+                >
+                  {isInWishlist(product.id) ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                </button>
               </div>
             </div>
           </div>
