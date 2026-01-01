@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../actions/wishlistActions";
 
 const Wishlist = () => {
@@ -8,16 +8,16 @@ const Wishlist = () => {
 
   return (
     <div>
-      <h3>Wishlist</h3>
       {items.map(item => (
         <div key={item.id} className="custom-card">
-          <h4>{item.name}</h4>
-          <button
-            className="remove-wishlist"
-            onClick={() => dispatch(removeFromWishlist(item.id))}
-          >
-            Remove
-          </button>
+          <div className="card-body">
+            <button
+              className="btn"
+              onClick={() => dispatch(removeFromWishlist(item.id))}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       ))}
     </div>

@@ -1,14 +1,14 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
-import { addToWishlist, removeFromWishlist } from '../actions/wishlistActions';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../actions/cartActions";
+import { addToWishlist, removeFromWishlist } from "../actions/wishlistActions";
 
 const ProductList = ({ products }) => {
   const dispatch = useDispatch();
-  const wishlistItems = useSelector(state => state.wishlist.items);
+  const wishlist = useSelector(state => state.wishlist.items);
 
-  const isInWishlist = (id) =>
-    wishlistItems.some(item => item.id === id);
+  const isWishlisted = id =>
+    wishlist.some(item => item.id === id);
 
   return (
     <div className="row">
@@ -20,23 +20,23 @@ const ProductList = ({ products }) => {
               <p>${product.price}</p>
 
               <button
-                className="btn btn-primary mb-2"
+                className="btn btn-primary"
                 onClick={() => dispatch(addToCart(product))}
               >
                 Add to Cart
               </button>
 
               <button
-                className="btn btn-secondary"
+                className="btn"
                 onClick={() =>
-                  isInWishlist(product.id)
+                  isWishlisted(product.id)
                     ? dispatch(removeFromWishlist(product.id))
                     : dispatch(addToWishlist(product))
                 }
               >
-                {isInWishlist(product.id)
-                  ? 'Remove from Wishlist'
-                  : 'Add to Wishlist'}
+                {isWishlisted(product.id)
+                  ? "Remove from Wishlist"
+                  : "Add to Wishlist"}
               </button>
             </div>
           </div>
