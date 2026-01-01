@@ -1,9 +1,8 @@
-
 import React from "react";
-import { Provider } from 'react-redux';
-import store from '../store';
-import './../styles/App.css';
-import ProductsPage from './ProductsPage';
+import { Provider } from "react-redux";
+import store from "../store/store";
+import ProductsPage from "./ProductsPage";
+import "../styles/App.css";
 
 const App = () => {
   return (
@@ -14,7 +13,7 @@ const App = () => {
         <ProductsPage />
       </div>
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
