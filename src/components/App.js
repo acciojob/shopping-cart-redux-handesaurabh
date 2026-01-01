@@ -4,19 +4,29 @@ import store from "../store/store";
 import ProductsPage from "./ProductsPage";
 import "../styles/App.css";
 
-const App = () => {
+const AppContent = () => {
   return (
-    <Provider store={store}>
+    <>
+      {/* Child 1 */}
       <nav className="navbar-expand-lg">
         <div className="text-center">Shopping Cart</div>
       </nav>
 
-      <div></div>
-
+      {/* Child 2 */}
       <div>
-        <h3>All Products</h3>
-        <ProductsPage />
+        <div>
+          <h3>All Products</h3>
+          <ProductsPage />
+        </div>
       </div>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <AppContent />
     </Provider>
   );
 };
