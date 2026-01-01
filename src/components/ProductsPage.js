@@ -6,11 +6,11 @@ import Wishlist from "./Wishlist";
 
 const ProductsPage = () => {
   return (
-    <>
+    <div className="container">
       <ProductList products={products} />
       <Cart />
       <Wishlist />
-    </>
+    </div>
   );
 };
 
