@@ -29,81 +29,38 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart">
-      <h2 className="mb-4">Shopping Cart</h2>
-      {cartItems.length === 0 ? (
-        <div className="alert alert-info">Your cart is empty</div>
-      ) : (
-        <>
-          <div className="cart-items">
-            {cartItems.map(item => (
-              <div key={item.id} className="cart-item row mb-3 p-3 border rounded">
-                <div className="col-md-2">
-                  <img src={item.image} className="img-fluid" alt={item.name} />
-                </div>
-
-                <div className="col-md-3 item-details">
-                  <h5>{item.name}</h5>
-                  <p className="mb-0">${item.price.toFixed(2)}</p>
-                </div>
-
-                <div className="col-md-3 quantity-controls d-flex align-items-center">
-                  <button
-                    className="btn btn-sm btn-outline-secondary mr-2 decrease-qty"
-                    onClick={() => handleDecreaseQuantity(item.id)}
-                  >
-                    -
-                  </button>
-
-                  <span className="mx-2">{item.quantity}</span>
-
-                  <button
-                    className="btn btn-sm btn-outline-secondary ml-2 increase-qty"
-                    onClick={() => handleIncreaseQuantity(item.id)}
-                  >
-                    +
-                  </button>
-                </div>
-
-                <div className="col-md-2 item-total d-flex align-items-center">
-                  <strong>${(item.price * item.quantity).toFixed(2)}</strong>
-                </div>
-
-                <div className="col-md-2 d-flex align-items-center">
-                  <button
-                    className="btn btn-danger btn-sm remove-from-cart"
-                    onClick={() => handleRemoveFromCart(item.id)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="cart-summary card p-4 mt-4">
-            <Coupon />
-
-            <div className="summary-row d-flex justify-content-between py-2">
-              <span>Subtotal:</span>
-              <span>${totalAmount.toFixed(2)}</span>
+    <>
+      {cartItems.map(item => (
+        <div key={item.id} className="custom-card card h-100 mb-4">
+          <img src={item.image} className="card-img-top" alt={item.name} />
+          <div className="card-body d-flex flex-column">
+            <h4 className="card-title">{item.name}</h4>
+            <p className="card-text">${item.price.toFixed(2)}</p>
+            <div className="quantity-controls d-flex align-items-center mb-2">
+              <button
+                className="btn btn-sm btn-outline-secondary mr-2"
+                onClick={() => handleDecreaseQuantity(item.id)}
+              >
+                -
+              </button>
+              <span className="mx-2">{item.quantity}</span>
+              <button
+                className="btn btn-sm btn-outline-secondary ml-2"
+                onClick={() => handleIncreaseQuantity(item.id)}
+              >
+                +
+              </button>
             </div>
-
-            {discount > 0 && (
-              <div className="summary-row d-flex justify-content-between py-2">
-                <span>Discount ({discount}%):</span>
-                <span>-${(totalAmount * discount / 100).toFixed(2)}</span>
-              </div>
-            )}
-
-            <div className="summary-row total d-flex justify-content-between py-2 border-top font-weight-bold">
-              <span>Total:</span>
-              <span>${calculateDiscountedTotal().toFixed(2)}</span>
-            </div>
+            <button
+              className="btn btn-danger"
+              onClick={() => handleRemoveFromCart(item.id)}
+            >
+              Remove
+            </button>
           </div>
-        </>
-      )}
-    </div>
+        </div>
+      ))}
+    </>
   );
 };
 

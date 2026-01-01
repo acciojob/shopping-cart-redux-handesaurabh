@@ -6,10 +6,19 @@ import Wishlist from "./Wishlist";
 
 const ProductsPage = () => {
   return (
-    <div className="container">
-      <ProductList products={products} />
-      <Cart />
-      <Wishlist />
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="text-center">
+          <h1>Shopping Cart</h1>
+        </div>
+      </nav>
+      <div className="container">
+        <div className="all-items">
+          <ProductList products={products} />
+          <Cart />
+          <Wishlist />
+        </div>
+      </div>
     </div>
   );
 };
