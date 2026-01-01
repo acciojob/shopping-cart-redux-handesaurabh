@@ -9,7 +9,7 @@ const App = () => {
     <Provider store={store}>
       <div></div>
       <div>
-        <h3>All Products</h3>
+        <h3>Shopping cart</h3>
         <ProductsPage />
       </div>
     </Provider>
