@@ -13,23 +13,9 @@ const ProductsPage = () => {
         </div>
       </nav>
       <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <div className="row">
-              <ProductList products={products} />
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="row">
-              <div className="col-md-12">
-                <Wishlist />
-              </div>
-              <div className="col-md-12">
-                <Cart />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProductList products={products} />
+        <Cart />
+        <Wishlist />
       </div>
     </div>
   );
