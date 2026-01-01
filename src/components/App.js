@@ -8,7 +8,6 @@ import ProductsPage from './ProductsPage';
 const App = () => {
   return (
     <Provider store={store}>
-      <div></div>
       <div>
         <h3>All Products</h3>
         <ProductsPage />
